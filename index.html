@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head><title>VIET Chatbot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;background:#0f172a;color:white;padding:10px}
+.box{max-width:500px;margin:auto;background:white;color:black;border-radius:15px;padding:15px}
+.msg{padding:8px;margin:5px;border-radius:10px}
+.user{background:#dcfce7;text-align:right}
+.bot{background:#e0f2fe}
+input{width:68%;padding:12px;border-radius:10px;border:1px solid #ccc}
+.btn{background:#2563eb;color:white;padding:12px;border:none;border-radius:10px}
+</style></head><body>
+<div class="box">
+<h3>🎓 VIET Assistant</h3>
+<div id="chat"><div class="msg bot">Hi! Fees? Hostel? Placements? Bus? Emi kavali adagandi</div></div><br>
+<input id="q" placeholder="Fees entha?">
+<button onclick="ask()" class="btn">Send</button>
+<br><br>
+<button onclick="window.open('https://wa.me/919876543210')" style="background:green;color:white;width:100%;padding:10px;border:none;border-radius:10px">💰 Admission Enquiry</button>
+</div>
+<script>
+const data={
+ fees:"CSE ₹65k, ECE ₹60k, MECH ₹55k per year",
+ hostel:"₹60k/year - 2,3,4 sharing, WiFi, Food",
+ placements:"Highest ₹10 LPA, Companies: TCS, Infosys, Wipro, 80% placed",
+ bus:"Vizag RTC to VIET - 6:30AM, 7:15AM - 540, 400Y"
+};
+function ask(){
+ let q=document.getElementById('q').value.toLowerCase();
+ let a="Contact admin: 9876543210";
+ if(q.includes('fee')) a=data.fees;
+ else if(q.includes('hostel')) a=data.hostel;
+ else if(q.includes('place')) a=data.placements;
+ else if(q.includes('bus')) a=data.bus;
+ else if(q.includes('admission')) a="Admission ki green button click cheyandi!";
+ document.getElementById('chat').innerHTML+=`<div class='msg user'>${q}</div><div class='msg bot'>${a}</div>`;
+ document.getElementById('q').value="";
+}
+</script></body></html>
